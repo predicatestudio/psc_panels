@@ -24,7 +24,7 @@
                 <ul class="list-group">
                     {% for example in example_panels %}
                     <li class="list-group-item">
-                        <a class="btn btn-primary" href="{{ url_for('static', path=example+'/example.html') }}">{{ example }}</a>
+                        <a class="btn btn-primary" href="{{ url_for(example, path='/example.html') }}">{{ example }}</a>
                     </li>
                     {% endfor %}
                 </ul>
