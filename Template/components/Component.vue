@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    name: 'Switch',
+    name: 'Component',
     props: {
         label: {
             type: String,

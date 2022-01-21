@@ -1,7 +1,8 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import FileResponse, RedirectResponse
+from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
+import uvicorn
 
 
 app = FastAPI()
@@ -9,13 +10,11 @@ app.mount("/static", StaticFiles(directory=Path(__file__).parent), name="static"
 
 
 @app.get("/")
-def home(request: Request):
+def home():
     return RedirectResponse("static/example.html")
 
 
 def main():
-    import uvicorn
-
     uvicorn.run("serve:app", reload=True)
 
 

@@ -29,7 +29,7 @@ export default {
   props: {
         title: {
             type: String,
-            default: 'Toggle Panel'
+            default: 'Panel Title'
         },
         switches: {
             type: Array,

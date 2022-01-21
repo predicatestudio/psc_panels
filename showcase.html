@@ -17,7 +17,9 @@
 
   <body>
     <h1>{{ panel }}:</h1>
-    <div id="vue-app"></div>
+    <div id="vue-app">
+      <h2>This app has failed to load.</h2>
+    </div>
     <script>
       const options = {
           moduleCache: {
@@ -44,8 +46,7 @@
 
       const app = Vue.createApp({
         components: {
-          // 'switch-panel': Vue.defineAsyncComponent( () => loadModule('./switchPanel.vue', options) ),
-          'app': Vue.defineAsyncComponent( () => loadModule('/static/{{ panel }}/App.vue', options) )
+          'app': Vue.defineAsyncComponent( () => loadModule('/static/{{ panel }}/Example.vue', options) )
         },
         data() {
           return {

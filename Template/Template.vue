@@ -8,7 +8,7 @@
                     <!-- List group -->
                     <ul class="list-group">
                         <div v-for="switchLine in switches">
-                            <Switch :label=switchLine.label :color=switchLine.color />
+                            <Component :label=switchLine.label :color=switchLine.color />
                         </div>
                     </ul>
                 </div>
@@ -18,13 +18,13 @@
 </template>
 
 <script>
-import Switch from './components/Switch.vue'
+import Component from './components/Component.vue'
 
 export default {
-  name: 'SwitchPanel',
+  name: 'TemplatePanel',
   title: 'Material Design Switch Demos',
   components: {
-      Switch
+      Component
   },
   props: {
         title: {

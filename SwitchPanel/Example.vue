@@ -1,3 +1,5 @@
+// This component is an example of how to use this component in a .vue file.
+// Example.vue is not intended to be used for anything other than showcasing and examples.
 <template>
     <div class="container">
         <SwitchPanel :title=panelData.head :switches=panelData.switches></SwitchPanel>
@@ -12,9 +14,7 @@ export default {
         SwitchPanel
     },
     props: {
-        panelData: {
-            type: Object,
-            default: {"switches": [{"label": "Gray Switch"}, {"label": "Blue Switch", "color": "primary"}], "head": "Default Header"}}
+        panelData: Object,
     }
 }
 </script>
