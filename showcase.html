@@ -9,16 +9,15 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     
-    <title>Switch Panel</title>
+    <title>{{panel}}</title>
     
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue3-sfc-loader/dist/vue3-sfc-loader.js"></script>
   </head>
 
   <body>
-    <div id="vue-app">
-      <h1>Switch Panel has failed to load.</h1>
-    </div>
+    <h1>{{ panel }}:</h1>
+    <div id="vue-app"></div>
     <script>
       const options = {
           moduleCache: {
@@ -46,30 +45,17 @@
       const app = Vue.createApp({
         components: {
           // 'switch-panel': Vue.defineAsyncComponent( () => loadModule('./switchPanel.vue', options) ),
-          'app': Vue.defineAsyncComponent( () => loadModule('./App.vue', options) )
+          'app': Vue.defineAsyncComponent( () => loadModule('/static/{{ panel }}/App.vue', options) )
         },
-        template: '<app :panelData=appData></app>',
         data() {
-            return {
-                panelData: {
-                    "switch": null,
-                    "header": null
-                }
+          return {
+              "appData": JSON.parse('{{ panel_data|tojson }}'),
             }
         },
-        created() {
-            fetch('./switch-panel.json')
-                .then(response => response.json()
-                .then(data => {
-                    this.panelData = data;
-                }))
-                .catch((e) => {
-                    console.error(e)
-                })
-        }
+        template: '<app :panelData=appData></app>'
       });
-
       app.mount('#vue-app');
     </script>
+
   </body>
 </html>

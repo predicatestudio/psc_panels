@@ -32,6 +32,20 @@
                 
             </div>
         </div>
+        <div class="container">
+            <div class="card" style="width: 18rem; margin-top: 20px;">
+                <div class="card-header" >Displays:</div>
+                <ul class="list-group">
+                    {% for example in example_panels %}
+                    <li class="list-group-item">
+                        <a class="btn btn-primary" href="/display/{{example}}">{{ example }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                
+            </div>
+        </div>
         <script src="" async defer></script>
     </body>
 </html>

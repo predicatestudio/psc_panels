@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <div id="vue-app">
+    <div id="app">
       <h1>Switch Panel has failed to load.</h1>
     </div>
     <script>
@@ -48,28 +48,10 @@
           // 'switch-panel': Vue.defineAsyncComponent( () => loadModule('./switchPanel.vue', options) ),
           'app': Vue.defineAsyncComponent( () => loadModule('./App.vue', options) )
         },
-        template: '<app :panelData=appData></app>',
-        data() {
-            return {
-                panelData: {
-                    "switch": null,
-                    "header": null
-                }
-            }
-        },
-        created() {
-            fetch('./switch-panel.json')
-                .then(response => response.json()
-                .then(data => {
-                    this.panelData = data;
-                }))
-                .catch((e) => {
-                    console.error(e)
-                })
-        }
+        template: '<app></app>'
       });
 
-      app.mount('#vue-app');
+      app.mount('#app');
     </script>
   </body>
 </html>

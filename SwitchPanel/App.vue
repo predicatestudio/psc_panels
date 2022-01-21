@@ -11,23 +11,10 @@ export default {
     components: {
         SwitchPanel
     },
-    data() {
-        return {
-            panelData: {
-                "switch": null,
-                "header": null
-            }
-        }
-    },
-    created() {
-        fetch('./switch-panel.json')
-            .then(response => response.json()
-            .then(data => {
-                this.panelData = data;
-            }))
-            .catch((e) => {
-                console.error(e)
-            })
+    props: {
+        panelData: {
+            type: Object,
+            default: {"switches": [{"label": "Gray Switch"}, {"label": "Blue Switch", "color": "primary"}], "head": "Default Header"}}
     }
 }
 </script>
