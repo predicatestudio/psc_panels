@@ -49,7 +49,7 @@ def home(request: Request):
 
 
 def main():
-    uvicorn.run("serve:app", reload=True)
+    uvicorn.run("server:app", reload=True)
 
 
 if __name__ == "__main__":
